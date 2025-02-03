@@ -73,8 +73,8 @@ export default function Home() {
             <div className="col-lg-6">
               <Image
                 style={{ "height": "570px", "width": "100%" }}
-                className="img-fluid"
-                objectFit="cover"
+                className="img-fluid object-cover"
+               
                 src={image1}
                 alt='logo'
               />
