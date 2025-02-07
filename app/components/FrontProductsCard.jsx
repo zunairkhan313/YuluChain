@@ -150,7 +150,7 @@ export default function FrontProductsCard ({ item, onReload }) {
         <div className='flex flex-wrap justify-around mt-3'>
           <button
             style={{ backgroundColor: isOutOfStock ? '#ccc' : '#248ccb' }}
-            className={`text-white font-medium rounded-lg text-sm px-3 py-2.5 mb-2 ${
+            className={`text-white font-medium font-text rounded-lg text-sm px-3 py-2.5 mb-2 ${
               isOutOfStock ? 'cursor-not-allowed' : 'hover:bg-[#248ccb]'
             }`}
             onClick={() => {
@@ -164,7 +164,7 @@ export default function FrontProductsCard ({ item, onReload }) {
             {isInCart(item?._id) ? 'Buy Now' : 'Buy Now'}
           </button>
           <button
-            className={`font-medium rounded-lg text-sm px-3 py-2.5 mb-2 ${
+            className={`font-medium rounded-lg font-text text-sm px-3 py-2.5 mb-2 ${
               isOutOfStock
                 ? 'cursor-not-allowed text-black'
                 : 'hover:bg-[#248ccb] hover:text-white'

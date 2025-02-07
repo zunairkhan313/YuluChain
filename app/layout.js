@@ -20,7 +20,7 @@ export const metadata = {
     default: "Yulu Supply Chain | Hand Tools | Power Tools",
     template: "%s - Yulu Supply Chain | Hand Tools | Power Tools"
   },
-  description: "Yulu Supply Chain is your trusted source for high-quality hand tools and power tools. At Yulu Supply Chain, we offer durable and reliable tools designed for efficiency and precision. Explore Yulu Supply Chain wide range of tools for professionals and DIY enthusiasts. Shop now with Yulu Supply Chain for the best in tools and equipment!",
+  description: "Yulu Supply Chain is your go-to tool website for optimizing supply chain management. Discover innovative solutions, tools, and resources to streamline operations, enhance efficiency, and drive business growth.",
   
   twitter: {
     card: "summary_large_image"

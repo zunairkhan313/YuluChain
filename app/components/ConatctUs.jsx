@@ -1,17 +1,45 @@
 'use client'
 
-import React, { useRef } from 'react'
-import '../Components/hr.css'
+import '../components/hr.css'
 import { FaFacebook, FaPhoneAlt, FaTiktok } from 'react-icons/fa'
 import { FaInstagram, FaLinkedin } from 'react-icons/fa'
 import { FaYoutube } from 'react-icons/fa'
-import { useState } from 'react'
-import { IoLogoWechat } from "react-icons/io5";
+import { IoLogoWechat } from 'react-icons/io5'
 import Swal from 'sweetalert2'
+import { CiMail } from 'react-icons/ci'
+import { CiPhone } from 'react-icons/ci'
+import { motion, useAnimation } from 'framer-motion'
+import { createContext } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
 
 export default function ContactUs () {
-  const [hoveredIcon, setHoveredIcon] = useState(null)
   const form = useRef()
+  const iconControls = useAnimation()
+  const textControls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  })
+
+  useEffect(() => {
+    if (inView) {
+      iconControls.start({
+        opacity: 1,
+        y: 0,
+
+        transition: { duration: 0.8, delay: 0.3 }
+      })
+      textControls.start({
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: { duration: 0.8, delay: 0.3 }
+      })
+    }
+  }, [iconControls, textControls, inView])
+
+  const [hoveredIcon, setHoveredIcon] = useState(null)
 
   async function handleSubmit (e) {
     e.preventDefault()
@@ -22,7 +50,7 @@ export default function ContactUs () {
         Accept: 'application/json'
       },
       body: JSON.stringify({
-        access_key: 'f5d5e31d-c6de-47c9-8c0b-4c8904d2d57e',
+        access_key: '374d4650-0549-442e-b78a-251a5942dca4',
         name: e.target.name.value,
         email: e.target.email.value,
         phone: e.target.phone.value,
@@ -43,6 +71,7 @@ export default function ContactUs () {
       }
     }
   }
+
   return (
     <>
       <style>{`
@@ -51,239 +80,162 @@ export default function ContactUs () {
                 }
             `}</style>
 
-      <div className='bg-white'>
-        <div className='bg-white mt-5 container p-3'>
-          <div className=' flex'>
-            <div className='text-5xl font-extrabold tracking-wider bgVideoText '>
-              <h1 className='heading text-black font-bold'>Contact Us</h1>
-            </div>
+      <div className='bg-white mt-5 container p-3'>
+        <div className=' flex'>
+          <div className='text-5xl font-extrabold tracking-wider bgVideoText '>
+            <motion.h1
+              className='heading text-black font-extrabold font-text italic'
+              initial={{ opacity: 0, x: -50 }}
+              animate={textControls}
+            >
+              Contact Us
+            </motion.h1>
           </div>
-          <div className='hr-contact'></div>
-          <form ref={form} onSubmit={handleSubmit}>
-            <div className='container my-5'>
-              <div className='row'>
-                <div className='col-md-8 p-5 shadow-2xl'>
-                  <h1
-                    style={{ color: '#ff3333' }}
-                    className='text-2xl font-bold ml-[-5px]'
+        </div>
+
+        <form ref={form} onSubmit={handleSubmit}>
+          <div className='container my-5'>
+            <div className='row'>
+              <div className='col-md-4 p-5 border border-[#f0f0f0]'>
+                <div className='flex'>
+                  <motion.div
+                    className='p-2 rounded-[39px] bg-[#248ccb] '
+                    ref={ref}
+                    initial={{ opacity: 0 }}
+                    animate={iconControls}
                   >
-                    We Are Here to Assist You!
-                  </h1>
-                  <div className='row'>
-                    <div className='col-md-6 p-2'>
-                      <label>
-                        <strong>Name:</strong>
-                      </label>
-                      <input
-                        name='name'
-                        className='form-control'
-                        required
-                        type='text'
-                        placeholder='Name'
-                      ></input>
-                    </div>
-                    <div className='col-md-6 p-2'>
-                      <label>
-                        <strong>Email:</strong>
-                      </label>
-                      <input
-                        name='email'
-                        className='form-control'
-                        required
-                        type='email'
-                        placeholder='Email'
-                      ></input>
-                    </div>
-                    <div className='col-md-6 p-2'>
-                      <label>
-                        <strong>Phone:</strong>
-                      </label>
-                      <input
-                        name='phone'
-                        className='form-control'
-                        required
-                        type='number'
-                        placeholder='Phone Number'
-                      ></input>
-                    </div>
-                    <div className='col-md-6 p-2'>
-                      <label>
-                        <strong>Subject:</strong>
-                      </label>
-                      <input
-                        name='subject'
-                        className='form-control'
-                        required
-                        type='text'
-                        placeholder='Subject'
-                      ></input>
-                    </div>
-                    <div className='col-md-12'>
-                      <label>
-                        <strong>Message:</strong>
-                      </label>
-                      <textarea
-                        name='message'
-                        className='form-control required'
-                        rows='6'
-                        required
-                        placeholder='Your Message'
-                      ></textarea>
-                    </div>
-                    <div className='p-2 flex items-center justify-center'>
-                      <button
-                        style={{ backgroundColor: '#ff3333' }}
-                        type='submit'
-                        className='w-full p-3 focus:outline-none rounded-[5px] text-white
-                                        hover:bg-black text-center ease-linear duration-150'
-                      >
-                        Send Message
-                      </button>
-                    </div>
+                    <CiPhone size={25} style={{ color: 'white' }} />
+                  </motion.div>
+                  <div className=' ml-5'>
+                    <motion.p
+                      className='text-md mt-[10px] font-bold font-text'
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={textControls}
+                    >
+                      Call To Us
+                    </motion.p>
                   </div>
                 </div>
-                <div className='col-md-4 p-5 shadow-2xl'>
-                  <div className='row'>
-                    <div className='col-md-12'>
-                      <div>
-                        <h2
-                          style={{ color: '#ff3333' }}
-                          className='text-2xl font-bold'
-                        >
-                          Our Address
-                        </h2>
-                        <hr />
-                        <div className='p-2 mt-4'>
-                          <h3>
-                            <strong>Telephone:</strong>
-                          </h3>
-                          <p className='icon-hover mt-2 flex'>
-                            <div className=' p-2 bg-[#ff3333] rounded-circle'>  
 
-                            <FaPhoneAlt className=' text-white ' />
-                            </div>
-                            <a
-                              href='tel:+923369533510'
-                              className='hover:text-black text-black ml-2 mt-1'
-                            >
-                              +92 33 69533510
-                            </a>
-                          </p>
-                          <p className='icon-hover mt-2 flex'>
-                            <div className='p-2 bg-[#ff3333] rounded-circle'>
+                <motion.p
+                  className='text-md text-black mt-4 font-text'
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={textControls}
+                >
+                  We are available 24/7, 7 days a week.
+                </motion.p>
+                <motion.p
+                  className='text-md text-black mt-4 font-text'
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={textControls}
+                >
+                  <a href='tel:+86-539-2653587'>Phone: +86-539-2653587</a>
+                </motion.p>
+                <br />
+                <hr />
 
-                            <IoLogoWechat
-                            
-                              className='text-white'
-                              />
-                              </div>
-                            <a
-                              href='tel:+8618553992709'
-                              className='hover:text-black text-black ml-2 mt-1'
-                            >
-                            +86 185 5399 2709
-                            </a>
-                          </p>
-                        </div>
-                        <div className='p-2 mt-3'>
-                          <h3>
-                            <strong>Email Address:</strong>
-                          </h3>
-                          <p>Info@songchuantools.pk</p>
-                          {/* <p>www.changlutools.com</p> */}
-                        </div>
-                      </div>
-                      <h2
-                        style={{ color: '#ff3333' }}
-                        className='text-2xl font-bold mt-4'
-                      >
-                        Available On
-                      </h2>
-                      <hr />
-                      <div className='flex mt-4'>
-                        <a
-                          href='https://www.facebook.com/songchuantools'
-                          className='hover:text-blue-500'
-                          onMouseEnter={() => setHoveredIcon('facebook')}
-                          onMouseLeave={() => setHoveredIcon(null)}
-                        >
-                          <FaFacebook
-                            className={
-                              hoveredIcon === 'facebook'
-                                ? 'text-[#0866FF] mx-2'
-                                : 'text-black mx-2'
-                            }
-                            size={24}
-                          />
-                        </a>
-                        <a
-                          href='https://www.tiktok.com/@songchuantools'
-                          className='hover:text-blue-400'
-                          onMouseEnter={() => setHoveredIcon('tiktok')}
-                          onMouseLeave={() => setHoveredIcon(null)}
-                        >
-                          <FaTiktok
-                            className={
-                              hoveredIcon === 'tiktok'
-                                ? 'text-[#E62A5D] mx-2'
-                                : 'text-black mx-2'
-                            }
-                            size={24}
-                          />
-                        </a>
-                        <a
-                          href='https://www.instagram.com/songchuantools/'
-                          className='hover:text-pink-500'
-                          onMouseEnter={() => setHoveredIcon('instagram')}
-                          onMouseLeave={() => setHoveredIcon(null)}
-                        >
-                          <FaInstagram
-                            className={
-                              hoveredIcon === 'instagram'
-                                ? 'text-[#B606E7] mx-2'
-                                : 'text-black mx-2'
-                            }
-                            size={24}
-                          />
-                        </a>
-                        <a
-                          href='https://www.linkedin.com/company/102889347/admin/dashboard/'
-                          className='hover:text-blue-700'
-                          onMouseEnter={() => setHoveredIcon('linkedin')}
-                          onMouseLeave={() => setHoveredIcon(null)}
-                        >
-                          <FaLinkedin
-                            className={
-                              hoveredIcon === 'linkedin'
-                                ? 'text-[#0A66C2] mx-2'
-                                : 'text-black mx-2'
-                            }
-                            size={24}
-                          />
-                        </a>
-                        <a
-                          href='https://www.youtube.com/channel/UC8CzedJLiiWPN10OfZ3eQ3g'
-                          className='hover:text-blue-700'
-                          onMouseEnter={() => setHoveredIcon('youtube')}
-                          onMouseLeave={() => setHoveredIcon(null)}
-                        >
-                          <FaYoutube
-                            className={
-                              hoveredIcon === 'youtube'
-                                ? 'text-[#FF0000] mx-2'
-                                : 'text-black mx-2'
-                            }
-                            size={24}
-                          />
-                        </a>
-                      </div>
-                    </div>
+                <div className='flex mt-4'>
+                  <motion.div
+                    className='p-2 rounded-[39px] bg-[#248ccb]'
+                    ref={ref}
+                    initial={{ opacity: 0 }}
+                    animate={iconControls}
+                  >
+                    <CiMail size={25} style={{ color: 'white' }} />
+                  </motion.div>
+                  <div className=' ml-5'>
+                    <motion.p
+                      className='text-md mt-[10px] font-bold font-text'
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={textControls}
+                    >
+                      Write To Us
+                    </motion.p>
+                  </div>
+                </div>
+                <motion.p
+                  className='text-md text-black mt-4 font-text'
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={textControls}
+                >
+                  Fill out our form and we will contact you within 24 hours.
+                </motion.p>
+
+                <motion.p
+                  className='text-md text-black mt-4 font-text'
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={textControls}
+                >
+                  <a href='mailto:info@cappello.pk'>
+                    Email: ylschcom@ylsch.com
+                  </a>
+                </motion.p>
+              </div>
+              <div className='col-md-8 p-5 border border-[#f0f0f0]'>
+                <motion.h1
+                  style={{ color: 'black' }}
+                  className='text-4xl font-extrabold ml-[-5px] font-text'
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={textControls}
+                >
+                  <span className='text-[#248ccb]'>Contact</span> Us
+                </motion.h1>
+                <div className='row mt-3'>
+                  {/* <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" /> */}
+                  <div className='col-md-4 p-2'>
+                    <input
+                      name='name'
+                      className='form-control py-2'
+                      required
+                      type='text'
+                      placeholder='Your Name'
+                    ></input>
+                  </div>
+                  <div className='col-md-4 p-2'>
+                    <input
+                      name='email'
+                      className='form-control py-2'
+                      required
+                      type='email'
+                      placeholder='Your Email'
+                    ></input>
+                  </div>
+                  <div className='col-md-4 p-2'>
+                    <input
+                      name='phone'
+                      className='form-control py-2'
+                      required
+                      type='number'
+                      placeholder='Your Phone'
+                    ></input>
+                  </div>
+
+                  <div className='col-md-12 mt-4'>
+                    <textarea
+                      name='message'
+                      className='form-control required'
+                      rows='8'
+                      required
+                      placeholder='Your Message'
+                    ></textarea>
+                  </div>
+                  <div className='p-2 flex items-center justify-center mt-2'>
+                    <motion.button
+                      style={{ backgroundColor: '#248ccb' }}
+                      type='submit'
+                      className='w-full p-3 focus:outline-none rounded-[5px] text-white
+                                        hover:bg-black text-center ease-linear duration-150'
+                      initial={{ opacity: 0, x: -150 }}
+                      animate={textControls}
+                    >
+                      Send Message
+                    </motion.button>
                   </div>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </>
   )

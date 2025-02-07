@@ -303,7 +303,7 @@ export default function ProductDetails () {
             {product?.title} {product?.small} {product?.code}
           </h1>
           <h1 className='text-2xl mt-2 font-bold font-text'>
-            Company: <span className='text-[#248ccb] font-text'>Yulu Supply Chain</span> - Origin:{' '}
+            Company: <span className='text-[#248ccb] font-text'>Yulu Supply Chain</span> 
             {/* <span className='text-[#248ccb]'>China</span> */}
           </h1>
           <div className='flex items-center mt-3'>
@@ -406,7 +406,7 @@ export default function ProductDetails () {
               <button
                 style={{ backgroundColor: isOutOfStock ? '#ccc' : '#248ccb' }}
                 type='button'
-                className={`text-white font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 ${
+                className={`text-white font-medium rounded-lg font-text text-sm px-3 py-2.5 me-2 mb-2 ${
                   isOutOfStock ? 'cursor-not-allowed' : 'hover:bg-[#248ccb]'
                 }`}
                 onClick={() => {
@@ -423,7 +423,7 @@ export default function ProductDetails () {
             <div>
               <button
                 type='button'
-                className={`font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 ${
+                className={`font-medium rounded-lg text-sm font-text px-3 py-2.5 me-2 mb-2 ${
                   isOutOfStock
                     ? 'cursor-not-allowed text-black'
                     : 'hover:bg-[#248ccb] hover:text-white'
@@ -445,8 +445,8 @@ export default function ProductDetails () {
               <FaTruckFast className='text-white' size={24} />
             </div>
             <div>
-              <h1 className='font-bold text-lg'>FREE AND FAST DELIVERY</h1>
-              <p className='text-xs font-semibold'>
+              <h1 className='font-bold text-lg font-text'>FAST DELIVERY</h1>
+              <p className='text-xs font-semibold font-text'>
                 Enjoy Free and Fast Delivery on Every Order!
               </p>
             </div>
@@ -456,8 +456,8 @@ export default function ProductDetails () {
               <BsShieldCheck className='text-white' size={24} />
             </div>
             <div>
-              <h1 className='font-bold text-lg'>MONEY BACK GUARANTEE</h1>
-              <p className='text-xs font-semibold'>Money back within 7 days</p>
+              <h1 className='font-bold text-lg font-text'>MONEY BACK GUARANTEE</h1>
+              <p className='text-xs font-semibold font-text'>Money back within 7 days</p>
             </div>
           </div>
         </div>

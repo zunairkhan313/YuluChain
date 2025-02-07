@@ -136,7 +136,7 @@ export default function ProductCard ({ item, onReload }) {
             {isOutOfStock && (
               <div
                 className='absolute p-2 top-0'
-                style={{ backgroundColor: 'red' }}
+                style={{ backgroundColor: '#248ccb' }}
               >
                 <h3 className='text-white font-bold text-md font-text'>Sold Out</h3>
               </div>
@@ -194,7 +194,7 @@ export default function ProductCard ({ item, onReload }) {
             <button
               style={{ backgroundColor: isOutOfStock ? '#ccc' : '#248ccb' }}
               type='button'
-              className={`text-white font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 ${
+              className={`text-white font-medium font-text rounded-lg text-sm px-3 py-2.5 me-2 mb-2 ${
                 isOutOfStock ? 'cursor-not-allowed' : 'hover:bg-[#248ccb]'
               }`}
               onClick={() => {
@@ -211,7 +211,7 @@ export default function ProductCard ({ item, onReload }) {
           <div>
             <button
               type='button'
-              className={`font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 ${
+              className={`font-medium rounded-lg font-text text-sm px-3 py-2.5 me-2 mb-2 ${
                 isOutOfStock
                   ? 'cursor-not-allowed text-[#248ccb]'
                   : 'hover:bg-[#248ccb] hover:text-white'

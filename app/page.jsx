@@ -1,18 +1,19 @@
 'use client'
 
-import Image from "next/image";
-import CarouselPage from "./components/Banner";
-import image1 from '../public/images/company.JPG'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Image from 'next/image'
+import CarouselPage from './components/Banner'
+import image1 from '../public/images/t4.jpg'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 // import map from "../public/Images/map.png"
 // import CateSliders from "./components/CategorySlider";
 // import SpecialOffers from "./components/SpecialOffers";
-import "./components/hr.css"
-import VideoPlayer from "./components/VideoPlayer";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import './components/hr.css'
+import VideoPlayer from './components/VideoPlayer'
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 // import FrontCategories from "./components/FrontCategories";
-import FrontProducts from "./components/FrontProducts";
+import FrontProducts from './components/FrontProducts'
+import FooterTop from './components/FooterTop'
 // import img1 from "../public/Images/img1.png"
 // import img2 from "../public/Images/img2.png"
 // import img3 from "../public/Images/img3.png"
@@ -20,8 +21,7 @@ import FrontProducts from "./components/FrontProducts";
 // import img5 from "../public/Images/img5.png"
 // import img6 from "../public/Images/img6.png"
 
-
-export default function Home() {
+export default function Home () {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -34,84 +34,160 @@ export default function Home() {
                     background-color: white;
                 }
             `}</style>
-      <div className="bg-white">
-
+      <div className='bg-white'>
         <div>
           <CarouselPage />
         </div>
         <br />
-        <div className="container mt-5">
-
-          <div className="flex flex-wrap justify-around">
-            <div className="flex gap-3">
-              <div id="first" className="font-bold text-6xl">1.</div>
-              <div id="firstpara">
-                <p className="font-bold mt-2">SHOP WITH CONFIDENCE</p>
-                <p className="text-sm mt-1">100% original products</p>
+        {/* <div className='container mt-5'>
+          <div className='flex flex-wrap justify-around'>
+            <div className='flex gap-3'>
+              <div id='first' className='font-bold text-6xl'>
+                <svg focusable='false' viewBox='0 0 24 22' role='presentation'>
+                  <g
+                    transform='translate(1 1)'
+                    stroke-width='1.5'
+                    fill='none'
+                    fill-rule='evenodd'
+                  >
+                    <path
+                      d='M5 10H2M5 15H4'
+                      stroke='#cb1836'
+                      stroke-linecap='square'
+                    ></path>
+                    <path
+                      stroke='#222021'
+                      d='M16.829 16H22v-6l-4-2-1-4H9v12h2.171'
+                    ></path>
+                    <path
+                      d='M0 5h5'
+                      stroke='#cb1836'
+                      stroke-linecap='square'
+                    ></path>
+                    <path
+                      stroke='#222021'
+                      stroke-linecap='square'
+                      d='M0 0h9v4'
+                    ></path>
+                    <circle
+                      stroke='#222021'
+                      stroke-linecap='square'
+                      cx='14'
+                      cy='17'
+                      r='3'
+                    ></circle>
+                    <path
+                      stroke='#222021'
+                      stroke-linecap='square'
+                      d='M13 7v2h2'
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div id='firstpara'>
+                <p className='font-bold mt-2'>SHOP WITH CONFIDENCE</p>
+                <p className='text-sm mt-1'>100% original products</p>
               </div>
             </div>
-            <div className="flex gap-3">
-              <div id="sec" className="font-bold text-6xl">2.</div>
+            <div className='flex gap-3'>
+              <div id='sec' className='font-bold text-6xl'>
+                2.
+              </div>
               <div>
-                <p className="font-bold mt-2">
-                  NATIONWIDE DELIVERY</p>
-                <p className="text-sm mt-1">Shipping all over Pakistan </p>
+                <p className='font-bold mt-2'>NATIONWIDE DELIVERY</p>
+                <p className='text-sm mt-1'>Shipping all over Pakistan </p>
               </div>
             </div>
-            <div className="flex gap-3">
-              <div id="third" className="font-bold text-6xl">3.</div>
+            <div className='flex gap-3'>
+              <div id='third' className='font-bold text-6xl'>
+                3.
+              </div>
               <div>
-                <p className="font-bold mt-2">FRIENDLY ONLINE SUPPORT</p>
-                <p className="text-sm mt-1">Email:info@songchuantools.pk</p>
+                <p className='font-bold mt-2'>FRIENDLY ONLINE SUPPORT</p>
+                <p className='text-sm mt-1'>Email:info@songchuantools.pk</p>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+       
         <br />
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-lg-6">
+        <div className='container mt-5'>
+          <div className='row'>
+            <div className='col-lg-6'>
               <Image
-                style={{ "height": "570px", "width": "100%" }}
-                className="img-fluid object-cover"
-               
+                style={{ height: '570px', width: '100%' }}
+                className='img-fluid object-cover'
                 src={image1}
                 alt='logo'
               />
             </div>
-            <div className="col-lg-6">
-              <h1 style={{ "color": "#ff3333" }} className="text-lg font-bold tracking-wider">COMPANY PROFILE</h1><br />
-              <h3 style={{ "color": "#ff3333" }} className="text-2xl font-bold"><span className="text-black">ABOUT</span> SONGCHUAN</h3><br />
-              <p className="text-lg text-justify">
-                The satisfaction of building something with your own hands has been a cornerstone of human ingenuity. At Songchuan Tools Pakistan, we believe the journey of creation should be fueled by both precision and passion. That&apos;s why we offer a comprehensive selection of hand tools and power tools.Our meticulously curated collection of hand tools boasts timeless classics like hammers, screwdrivers, saws, and wrenches, all crafted from the finest materials for exceptional durability and control.
-              </p><br />
+            <div id='compro' className='col-lg-6'>
+              <h1
+                style={{ color: '#248ccb' }}
+                className='text-lg font-bold tracking-wider font-text'
+              >
+                COMPANY PROFILE
+              </h1>
+              <br />
+              <h3
+                style={{ color: '#248ccb' }}
+                className='text-2xl font-extrabold font-text italic'
+              >
+                <span className='text-black'>ABOUT</span> YULU SUPPLY CHAIN
+              </h3>
+              <br />
+              <p className='text-lg text-justify'>
+                Yulu Supply Chain is a leading provider of comprehensive OEM
+                services and custom tooling solutions. We specialize in
+                partnering with manufacturers to streamline production
+                processes, enhance efficiency, and improve overall product
+                quality. Our expertise spans a wide range of industries,
+                including automotive, aerospace, medical, and consumer goods.{' '}
+                <br />
+                <br />
+                We offer a complete suite of services, from initial design and
+                prototyping to full-scale production and ongoing maintenance.
+                Our team of skilled engineers and technicians utilizes the
+                latest technologies and advanced manufacturing techniques to
+                deliver innovative and cost-effective solutions that meet the
+                unique needs of each client.
+              </p>
+              <br />
 
-              <h3 style={{ "color": "#ff3333" }} className="text-2xl font-bold">SONGCHUAN <span className="text-black">Offers:</span></h3> <br />
+              {/* <h3 style={{ "color": "#248ccb" }} className="text-2xl font-bold">SONGCHUAN <span className="text-black">Offers:</span></h3> <br />
               <div className="flex">
-                <CheckCircleIcon style={{ "color": "#ff3333" }} />
+                <CheckCircleIcon style={{ "color": "#248ccb" }} />
                 <p className="text-lg font-bold ml-4">Affordable Price</p>
               </div>
               <div className="flex">
-                <CheckCircleIcon style={{ "color": "#ff3333" }} />
+                <CheckCircleIcon style={{ "color": "#248ccb" }} />
                 <p className="text-lg font-bold ml-4">Promotion Support</p>
               </div>
               <div className="flex">
-                <CheckCircleIcon style={{ "color": "#ff3333" }} />
+                <CheckCircleIcon style={{ "color": "#248ccb" }} />
                 <p className="text-lg font-bold ml-4">Ready stock</p>
               </div>
               <div className="flex">
-                <CheckCircleIcon style={{ "color": "#ff3333" }} />
+                <CheckCircleIcon style={{ "color": "#248ccb" }} />
                 <p className="text-lg font-bold ml-4">Long-Testing Quality</p>
-              </div>
-              <br />
-              <Link href={"/about"}>
-                <button style={{ "backgroundColor": "#ff3333" }} className="text-white text-sm p-3 rounded-[5px] hover:rounded-[10px]">More Details</button>
+              </div> */}
+
+              <Link href={'/about'}>
+                <button
+                  style={{ backgroundColor: '#248ccb' }}
+                  className='text-white text-sm p-3 rounded-[5px] hover:rounded-[10px] font-text px-4 py-3'
+                >
+                  Learn More
+                </button>
               </Link>
-              <br /><br /><br />
+              <br />
+              <br />
+              <br />
             </div>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
 
         {/* <div className="container mt-5 mb-5">
           <div>
@@ -147,7 +223,7 @@ export default function Home() {
             </div>
           </div>
         </div> */}
-{/* 
+        {/* 
         <div className="container mt-5 mb-5 ">
           <div className="row">
             <div className="col-lg-6">
@@ -223,17 +299,16 @@ export default function Home() {
           </div>
         </div> */}
 
-
-        {/* <div style={{ borderBottom: "3px solid #ff3333", width: "160px" }} className="container">
+        {/* <div style={{ borderBottom: "3px solid #248ccb", width: "160px" }} className="container">
         </div> */}
         {/* <div style={{borderTop:"4px solid black",marginTop:"-2px"}} className="container">
         
       </div> */}
 
-
-        <br /><br />
-        {/* <h1 className="text-2xl text-center font-extrabold text-black mt-5 italic font-sans"><span className="text-[#ff3333]">SONGCHUAN</span> GLOBAL NETWORK</h1> */}
-        {/* <div style={{ borderBottom: "3px solid #ff3333", width: "320px" }} className="container"> */}
+        <br />
+        <br />
+        {/* <h1 className="text-2xl text-center font-extrabold text-black mt-5 italic font-sans"><span className="text-[#248ccb]">SONGCHUAN</span> GLOBAL NETWORK</h1> */}
+        {/* <div style={{ borderBottom: "3px solid #248ccb", width: "320px" }} className="container"> */}
         {/* </div> */}
         <br />
         {/* <div className="mt-5">
@@ -245,24 +320,26 @@ export default function Home() {
           />
         </div><br /><br /> */}
 
-
-
         {/* <h1 id="offers" className="text-2xl text-center font-bold text-black mt-5 italic font-sans">TOP CATEGORIES</h1>
-        <div style={{ borderBottom: "3px solid #ff3333", width: "150px" }} className="container">
+        <div style={{ borderBottom: "3px solid #248ccb", width: "150px" }} className="container">
         </div> */}
         {/* <div className="container mt-3"> */}
         {/* <SpecialOffers /> */}
         {/* <FrontCategories />
         </div> */}
-        <div className="container mt-3">
-          <h1 className="text-2xl text-center font-extrabold text-black mt-5 italic font-sans"><span className="text-[#248ccb]">OUR</span> PRODUCTS</h1>
-           {/* <div style={{ borderBottom: "3px solid #ff3333", width: "160px" ,borderStyle:"dashed"}} className="container"> */}
-        {/* </div> */}
+        <div className='container mt-3'>
+          <h1 className='text-2xl text-center font-extrabold text-black mt-5 italic font-sans'>
+            <span className='text-[#248ccb]'>OUR</span> PRODUCTS
+          </h1>
+          {/* <div style={{ borderBottom: "3px solid #248ccb", width: "160px" ,borderStyle:"dashed"}} className="container"> */}
+          {/* </div> */}
           {/* <CateSliders /> */}
           <FrontProducts />
-        </div><br />
-
+          <br />
+        </div>
+          <FooterTop/>
+        <br />
       </div>
     </>
-  );
+  )
 }
