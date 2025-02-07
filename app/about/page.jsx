@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Components/hr.css'
+import '../components/hr.css'
 import about1 from '../../public/images/t1.jpg'
 import about2 from '../../public/images/t2.jpg'
 import about3 from '../../public/images/t3.jpg'

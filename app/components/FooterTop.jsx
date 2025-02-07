@@ -1,8 +1,8 @@
 import React from 'react'
 import truck from "../../public/Images/ship.png"
 import logo24 from "../../public/Images/24.png"
-import mastercard from "../../public/Images/mastercard.png"
-import delievery from "../../public/Images/fast.png"
+import mastercard from "../../public/images/mastercard.png"
+import delievery from "../../public/images/fast.png"
 import Image from 'next/image'
 import "./hr.css"
 
